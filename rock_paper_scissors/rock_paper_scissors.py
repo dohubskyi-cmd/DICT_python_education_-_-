@@ -1,54 +1,55 @@
 import random
 import os
 
-user_name = input("Enter your name: ")
+user_name = input("Enter your name: > ")
 print(f"Hello, {user_name}")
 
 user_rating = 0
 if os.path.exists("rating.txt"):
-    with open("rating.txt", "r", encoding="utf-8") as file:
+    with open("rating.txt", "r") as file:
         for line in file:
-            data = line.split()
-            if data[0] == user_name:
-                user_rating = int(data[1])
+            name, score = line.split()
+            if name == user_name:
+                user_rating = int(score)
 
-custom_options = input().strip()
-if not custom_options:
-    game_options = ["rock", "paper", "scissors"]
+print("Enter a set of game symbols to be used in this game:")
+options_input = input("> ")
+
+if options_input == "":
+    options = ["rock", "paper", "scissors"]
 else:
-    game_options = custom_options.split(",")
+    options = options_input.split(",")
 
 print("Okay, let's start")
 
 while True:
-    user_choice = input()
+    user_choice = input("> ")
 
     if user_choice == "!exit":
         print("Bye!")
         break
-
+    
     if user_choice == "!rating":
         print(f"Your rating: {user_rating}")
         continue
 
-    if user_choice not in game_options:
+    if user_choice not in options:
         print("Invalid input")
         continue
 
-    comp_choice = random.choice(game_options)
-
-    if user_choice == comp_choice:
-        print(f"There is a draw ({comp_choice})")
+    computer_choice = random.choice(options)
+    
+    if user_choice == computer_choice:
+        print(f"There is a draw ({computer_choice})")
         user_rating += 50
     else:
-        index = game_options.index(user_choice)
-        reordered = game_options[index + 1:] + game_options[:index]
-        
-        half = len(reordered) // 2
-        weak_against = reordered[:half]
-        
-        if comp_choice in weak_against:
-            print(f"Sorry, but the computer chose {comp_choice}")
-        else:
-            print(f"Well done. The computer chose {comp_choice} and failed")
+        idx = options.index(user_choice)
+        reordered_options = options[idx + 1:] + options[:idx]
+        half = len(reordered_options) // 2
+        defeated_by_user = reordered_options[half:]
+
+        if computer_choice in defeated_by_user:
+            print(f"Well done. The computer chose {computer_choice} and failed")
             user_rating += 100
+        else:
+            print(f"Sorry, but the computer chose {computer_choice}")
