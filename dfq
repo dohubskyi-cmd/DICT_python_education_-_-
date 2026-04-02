@@ -1,0 +1,31 @@
+[33ma75add2[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mfeature/rock-paper-scissors[m[33m, [m[1;31morigin/feature/rock-paper-scissors[m[33m)[m Praktuka 14 Rock Paper Scissors Gubskuy Dmutro 516
+[33mc1769f0[m[33m ([m[1;31morigin/dev[m[33m, [m[1;32mdev[m[33m)[m Merge pull request #11 from dohubskyi-cmd/feature/arithmetic_test
+[33mdcd000f[m[33m ([m[1;31morigin/feature/arithmetic_test[m[33m, [m[1;32mfeature/arithmetic_test[m[33m)[m Praktuka 13 vupravlenno 2
+[33m17447ab[m Praktuka 13 vupravlenno
+[33mc1d13f0[m Praktuka 13
+[33mcebe937[m Merge pull request #10 from dohubskyi-cmd/feature/simplified_markdown_editor
+[33mb8b2081[m[33m ([m[1;31morigin/feature/simplified_markdown_editor[m[33m, [m[1;32mfeature/simplified_markdown_editor[m[33m)[m Praktuka 12
+[33m3da6028[m Praktuka 12 Markdown Editor
+[33m3148014[m Merge pull request #9 from dohubskyi-cmd/feature/matrixprocessing
+[33mb912678[m Merge pull request #8 from dohubskyi-cmd/feature/coffeemachine
+[33m815b874[m[33m ([m[1;31morigin/feature/coffeemachine[m[33m, [m[1;32mfeature/coffeemachine[m[33m)[m Praktuka 10 Coffeemachine
+[33m7fc3ded[m[33m ([m[1;31morigin/feature/matrixprocessing[m[33m)[m Matrix Praktuka 11
+[33mfbd74f5[m[33m ([m[1;32mfeature/pencils[m[33m)[m Merge pull request #7 from dohubskyi-cmd/feature/pencils
+[33ma572124[m Merge pull request #6 from dohubskyi-cmd/feature/tictactoe
+[33mf19a3fa[m Merge pull request #5 from dohubskyi-cmd/feature/dinnerparty
+[33m42f5016[m Merge pull request #3 from dohubskyi-cmd/feature/zoo
+[33m9764914[m Merge pull request #1 from dohubskyi-cmd/feature/task1
+[33m7ce8844[m[33m ([m[1;31morigin/feature/pencils[m[33m)[m Praktuka 9 Pencils
+[33m9f31e77[m[33m ([m[1;31morigin/feature/tictactoe[m[33m, [m[1;32mfeature/tictactoe[m[33m)[m Praktuka 8
+[33m3c7ca33[m[33m ([m[1;31morigin/feature/dinnerparty[m[33m, [m[1;32mfeature/dinnerparty[m[33m)[m Praktuka 7
+[33m0d562e1[m[33m ([m[1;32mfeature/hangman[m[33m)[m Merge pull request #4 from dohubskyi-cmd/feature/hangman
+[33m7e250ee[m[33m ([m[1;31morigin/feature/hangman[m[33m)[m Hangman Game Praktuka 6
+[33m56f09d8[m[33m ([m[1;31morigin/feature/zoo[m[33m, [m[1;32mfeature/zoo[m[33m)[m Feature: Implement full "Zoo" console program (Stages 1-4)
+[33m87ac82a[m Merge pull request #2 from dohubskyi-cmd/feature/chatbot
+[33mf2e73e8[m[33m ([m[1;31morigin/feature/chatbot[m[33m, [m[1;32mfeature/chatbot[m[33m)[m "Implement full chatbot functionality (Stages 1-5)"
+[33m95aabe3[m[33m ([m[1;31morigin/feature/task1[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mfeature/task1[m[33m)[m Add test.py
+[33m85d108a[m Finalize test.py
+[33m8db24c1[m Reapply "Add main.py"
+[33me1271d9[m Revert "Add main.py"
+[33ma063a8b[m Add main.py
+[33m5f5888f[m Add README
