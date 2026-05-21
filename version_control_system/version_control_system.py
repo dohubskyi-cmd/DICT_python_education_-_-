@@ -7,9 +7,9 @@ def get_hash(files):
     combined_content = ""
     for f in sorted(files):
         if os.path.exists(f):
-            with open(f, "r") as file:
+            with open(f, "r", encoding="utf-8") as file:
                 combined_content += file.read()
-    return hashlib.sha1(combined_content.encode()).hexdigest()
+    return hashlib.sha1(combined_content.encode("utf-8")).hexdigest()
 
 def ensure_vcs_dir():
     if not os.path.exists("vcs"):
@@ -18,21 +18,21 @@ def ensure_vcs_dir():
         os.mkdir("vcs/commits")
     for f in ["config.txt", "index.txt", "log.txt"]:
         if not os.path.exists(f"vcs/{f}"):
-            open(f"vcs/{f}", "a").close()
+            open(f"vcs/{f}", "a", encoding="utf-8").close()
 
 def handle_config(args):
     if len(args) == 1:
-        with open("vcs/config.txt", "r") as f:
+        with open("vcs/config.txt", "r", encoding="utf-8") as f:
             content = f.read().strip()
             print(f"The username is {content}." if content else "Please, tell me who you are.")
     else:
-        with open("vcs/config.txt", "w") as f:
+        with open("vcs/config.txt", "w", encoding="utf-8") as f:
             f.write(args[1])
             print(f"The username is {args[1]}.")
 
 def handle_add(args):
     if len(args) == 1:
-        with open("vcs/index.txt", "r") as f:
+        with open("vcs/index.txt", "r", encoding="utf-8") as f:
             lines = f.readlines()
             if not lines:
                 print("Add a file to the index.")
@@ -43,10 +43,10 @@ def handle_add(args):
     else:
         filename = args[1]
         if os.path.exists(filename):
-            with open("vcs/index.txt", "r") as f:
+            with open("vcs/index.txt", "r", encoding="utf-8") as f:
                 tracked = [line.strip() for line in f]
             if filename not in tracked:
-                with open("vcs/index.txt", "a") as f:
+                with open("vcs/index.txt", "a", encoding="utf-8") as f:
                     f.write(filename + "\n")
             print(f"The file '{filename}' is tracked.")
         else:
@@ -55,7 +55,7 @@ def handle_add(args):
 def handle_commit(message):
     if not message:
         return print("Message was not passed.")
-    with open("vcs/index.txt", "r") as f:
+    with open("vcs/index.txt", "r", encoding="utf-8") as f:
         tracked = [line.strip() for line in f if line.strip()]
     if not tracked:
         return print("Nothing to commit.")
@@ -63,7 +63,7 @@ def handle_commit(message):
     current_hash = get_hash(tracked)
     last_hash = ""
     if os.path.exists("vcs/log.txt"):
-        with open("vcs/log.txt", "r") as f:
+        with open("vcs/log.txt", "r", encoding="utf-8") as f:
             line = f.readline()
             if line and line.startswith("commit"):
                 last_hash = line.split()[1]
@@ -76,12 +76,12 @@ def handle_commit(message):
     for f in tracked:
         shutil.copy(f, path)
     
-    with open("vcs/config.txt", "r") as f:
+    with open("vcs/config.txt", "r", encoding="utf-8") as f:
         author = f.read().strip()
     
-    with open("vcs/log.txt", "r") as f:
+    with open("vcs/log.txt", "r", encoding="utf-8") as f:
         old_log = f.read()
-    with open("vcs/log.txt", "w") as f:
+    with open("vcs/log.txt", "w", encoding="utf-8") as f:
         f.write(f"commit {current_hash}\nAuthor: {author}\n{message}\n\n" + old_log)
     print("Changes are committed.")
 
@@ -89,7 +89,7 @@ def handle_log():
     if not os.path.exists("vcs/log.txt") or os.stat("vcs/log.txt").st_size == 0:
         print("No commits yet.")
     else:
-        with open("vcs/log.txt", "r") as f:
+        with open("vcs/log.txt", "r", encoding="utf-8") as f:
             print(f.read().strip())
 
 def handle_checkout(args):
