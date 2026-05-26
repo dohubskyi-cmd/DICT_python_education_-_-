@@ -4,12 +4,13 @@ import hashlib
 import shutil
 
 def get_hash(files):
-    combined_content = ""
+    hasher = hashlib.sha1()
     for f in sorted(files):
         if os.path.exists(f):
-            with open(f, "r", encoding="utf-8") as file:
-                combined_content += file.read()
-    return hashlib.sha1(combined_content.encode("utf-8")).hexdigest()
+            with open(f, "rb") as file:
+                while chunk := file.read(8192):
+                    hasher.update(chunk)
+    return hasher.hexdigest()
 
 def ensure_vcs_dir():
     if not os.path.exists("vcs"):
